@@ -49,9 +49,6 @@
     -->
     <link rel="stylesheet" href="https://code.getmdl.io/1.2.1/material.indigo-pink.min.css">
 
-    <!-- google fonts -->
-    <link href="https://fonts.googleapis.com/css?family=+Condensed:300,300i,400,400i,700,700i&display=swap" rel="stylesheet">
-
     <!-- Your styles -->
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/getmdl-select.min.css">
@@ -235,10 +232,10 @@
           </section>
         </div>
         <div class="mdl-layout__tab-panel" id="checkout">
-          <section class="section--center mdl-grid mdl-grid--no-spacing b-formCheckout">
+          <section class="section--center mdl-grid mdl-grid--no-spacing b-formCheckout" id="formCheckoutSection">
 
-            <div class="b-formCheckout__form mdl-cell mdl-cell--8-col">
-              <div class="b-formCheckout__formContent">
+            <div class="b-formCheckout__content mdl-cell mdl-cell--8-col">
+              <form class="b-formCheckout__form" id="formCheckout" novalidate>
                 <h4 class="b-formCheckout__title mdl-layout__title">
                   <span class="b-formCheckout__titleNumber">1</span>
                   <span class="b-formCheckout__titleText">Personal Information</span>
@@ -246,55 +243,71 @@
 
                 <div class="b-formCheckout-subform mdl-grid">
                   <div class="mdl-cell mdl-cell--6-col">
-                    <div class="b-formCheckout__field mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                      <input class="b-formCheckout__fieldInput mdl-textfield__input"
+                    <div class="js-formCheckout__field b-formCheckout__field mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                      <input class="js-formCheckout__fieldInput b-formCheckout__fieldInput mdl-textfield__input"
                             type="text" 
-                            id="firstName">
+                            id="firstName"
+                            data-validation="required"
+                            name="First name">
                       <label class="b-formCheckout__fieldLabel mdl-textfield__label" for="firstName">First name</label>
                     </div>
                   </div>
                   <div class="mdl-cell mdl-cell--6-col">
-                    <div class="b-formCheckout__field mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                      <input class="b-formCheckout__fieldInput mdl-textfield__input" 
+                    <div class="js-formCheckout__field b-formCheckout__field mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                      <input class="js-formCheckout__fieldInput b-formCheckout__fieldInput mdl-textfield__input" 
                             type="text" 
-                            id="lastName">
+                            id="lastName"
+                            data-validation="required"
+                            name="Last name">
                       <label class="b-formCheckout__fieldLabel mdl-textfield__label" for="lastName">Last name</label>
                     </div>
                   </div>
                   <div class="mdl-cell mdl-cell--12-col">
-                    <div class="b-formCheckout__field mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                      <input class="b-formCheckout__fieldInput mdl-textfield__input" 
+                    <div class="js-formCheckout__field b-formCheckout__field mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                      <input class="js-formCheckout__fieldInput b-formCheckout__fieldInput mdl-textfield__input" 
                             type="email" 
-                            id="Email">
+                            id="Email"                            
+                            data-validation="required email"
+                            name="Email">
                       <label class="b-formCheckout__fieldLabel mdl-textfield__label" for="Email">Email</label>
                     </div>
                   </div>
                   <div class="mdl-cell mdl-cell--6-col">
-                    <div class="b-formCheckout__field mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select">
-                      <input type="text" value="" class="b-formCheckout__fieldSelect mdl-textfield__input" id="sample2" readonly>
-                      <input type="hidden" value="" name="sample2">
+                    <div class="js-formCheckout__field b-formCheckout__field mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select">
+                      <input type="text"
+                            value="" 
+                            class="js-formCheckout__fieldInput b-formCheckout__fieldSelect mdl-textfield__input" 
+                            id="sample2" 
+                            readonly
+                            data-validation="required"
+                            name="Country">
+                      <input type="hidden" value="" name="sample2" id="selectInputHidden">
                       <i class="mdl-icon-toggle__label material-icons b-formCheckout__fieldArrow">keyboard_arrow_down</i>
                       <label for="sample2" class="b-formCheckout__fieldLabel mdl-textfield__label">Country</label>
                       <ul for="sample2" class="mdl-menu mdl-menu--bottom-left mdl-js-menu">
-                          <li class="mdl-menu__item" data-val="DEU">United States</li>
-                          <li class="mdl-menu__item" data-val="BLR">Poland</li>
-                          <li class="mdl-menu__item" data-val="RUS">Germany</li>
+                          <li class="js-mdl-menu__item mdl-menu__item" data-val="US">United States</li>
+                          <li class="js-mdl-menu__item mdl-menu__item" data-val="PL">Poland</li>
+                          <li class="js-mdl-menu__item mdl-menu__item" data-val="DE">Germany</li>
                       </ul>
                     </div>
                   </div>
                   <div class="mdl-cell mdl-cell--6-col">
-                    <div class="b-formCheckout__field mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                      <input class="b-formCheckout__fieldInput mdl-textfield__input" 
-                                    type="number" 
-                                    id="postalCode">
+                    <div class="js-formCheckout__field b-formCheckout__field mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                      <input class="js-formCheckout__fieldInput b-formCheckout__fieldInput mdl-textfield__input" 
+                                    type="text" 
+                                    id="postalCode"
+                                    data-validation="required"
+                                    name="Postal Code">
                       <label class="b-formCheckout__fieldLabel mdl-textfield__label" for="postalCode">Postal Code</label>
                     </div>
                   </div>
                   <div class="mdl-cell mdl-cell--12-col">
-                    <div class="b-formCheckout__field mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                      <input class="b-formCheckout__fieldInput mdl-textfield__input" 
+                    <div class="js-formCheckout__field b-formCheckout__field mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                      <input class="js-formCheckout__fieldInput b-formCheckout__fieldInput mdl-textfield__input" 
                             type="tel" 
-                            id="phoneNumber">
+                            id="phoneNumber"
+                            data-validation="required phoneNumber"
+                            name="Phone Number">
                       <label class="b-formCheckout__fieldLabel mdl-textfield__label" for="phoneNumber">Phone Number</label>
                     </div>
                   </div>
@@ -310,39 +323,48 @@
 
                 <div class="b-formCheckout-subform mdl-grid">
                   <div class="mdl-cell mdl-cell--12-col">
-                    <div class="b-formCheckout__field type-icon mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                      <input class="b-formCheckout__fieldInput mdl-textfield__input" 
+                    <div class="js-formCheckout__field b-formCheckout__field type-icon mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                      <input class="js-formCheckout__fieldInput b-formCheckout__fieldInput mdl-textfield__input" 
                             type="text" 
-                            id="creditCardNumber">
+                            id="creditCardNumber"
+                            data-validation="required creditCard"
+                            name="Credit Card Number">
                       <label class="b-formCheckout__fieldLabel mdl-textfield__label" for="creditCardNumber">Credit Card Number</label>
                       <i class="b-formCheckout__fieldIcon material-icons mdc-text-field__icon" tabindex="0" role="button">credit_card</i>
                     </div>
                   </div>
                   <div class="mdl-cell mdl-cell--6-col">
-                    <div class="b-formCheckout__field type-icon mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                      <input class="b-formCheckout__fieldInput mdl-textfield__input" 
+                    <div class="js-formCheckout__field b-formCheckout__field type-icon mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                      <input class="js-formCheckout__fieldInput b-formCheckout__fieldInput mdl-textfield__input" 
                             type="password" 
-                            id="securityCode">
+                            id="securityCode"
+                            data-validation="required securityCode"
+                            name="Security Code">
                       <label class="b-formCheckout__fieldLabel mdl-textfield__label" for="securityCode">Security Code</label>
                       <i class="b-formCheckout__fieldIcon cursor-pointer material-icons mdc-text-field__icon" tabindex="0" role="button">help_outline</i>
                     </div>
                   </div>
                   <div class="mdl-cell mdl-cell--6-col">
-                    <div class="b-formCheckout__field mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                      <input class="b-formCheckout__fieldInput mdl-textfield__input" 
+                    <div class="js-formCheckout__field b-formCheckout__field mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                      <input class="js-formCheckout__fieldInput b-formCheckout__fieldInput mdl-textfield__input" 
                             type="text" 
-                            id="expirationDate">
+                            id="expirationDate"
+                            placeholder="MM / YY"
+                            data-validation="required expirationDate"
+                            name="Expiration date">
                       <label class="b-formCheckout__fieldLabel mdl-textfield__label" for="expirationDate">Expiration date</label>
                     </div>
                   </div>
-                  <div class="mdl-cell mdl-cell--12-col mdl-textfield--floating-label">
-                    <button class="b-formCheckout__button mdl-button mdl-js-button mdl-button--raised">
+                  <div class="mdl-cell mdl-cell--12-col">
+                    <div class="js-errorMessage b-formCheckout__message -type_error -state_hidden">Error</div>
+                    <button class="b-formCheckout__button mdl-button mdl-js-button mdl-button--raised" type="submit">
                       <i class="b-formCheckout__buttonIcon material-icons">shopping_cart</i> 
                       <span class="b-formCheckout__buttonText">Complete Purchase</span>
                     </button>
                   </div>
                 </div>
-              </div>
+              </form>
+              <div class="js-successMessage b-formCheckout__message -type_success -state_hidden">Congratulations! Purchase completed :)</div>
             </div>
 
             <div class="b-formCheckout__order mdl-cell mdl-cell--4-col">
@@ -445,6 +467,8 @@
     <!-- build:js scripts/main.min.js -->
     <script src="scripts/main.js"></script>
     <script src="scripts/getmdl-select.js"></script>
+    <script src="https://unpkg.com/imask"></script>
+    <script src="scripts/validation.js"></script>
     <!-- endbuild -->
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->

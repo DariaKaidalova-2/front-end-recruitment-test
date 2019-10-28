@@ -1,28 +1,38 @@
+// text color varialbels
 $color-1: #000;
 $color-2: #fff;
 $color-3: #515356; //field label
 $color-4: #9b9b9b; // field text
 $color-5: #484848;
 $color-6: #c3c3c3;
+$color-7: #e00909;
+$color-8: green;
+// background varialbels
 $bg-color-0: #f2f2f2;
 $bg-color-1: #000;
 $bg-color-2: #fff;
 $bg-color-3: #6bd400;
 
-
+// background for checkout form
 .mdl-demo .mdl-layout__tab-panel#checkout {
   background-color: $bg-color-0;
 }
 
+// checkout form main styles
 .b-formCheckout {
   font: 14px/1.3 'Roboto', sans-serif;
 
-  &__form {
+  &__content {
+    padding: 0 7px 0 0;
 
-    &Content {
-      padding: 0 7px 0 0;
+    .-state_success & {
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
   }
+  
+  &__form {}
 
   &-subform {
     padding: 0 0 0 21px;
@@ -31,6 +41,10 @@ $bg-color-3: #6bd400;
 
   &__order {
     padding: 38px 0 0;
+
+    .-state_success & {
+      padding-top: 0;
+    }
 
     &Content {
       padding: 5px;
@@ -145,6 +159,10 @@ $bg-color-3: #6bd400;
       .is-focused & {
         border-bottom-color: #3f51b5;
       }
+
+      .-type_error & {
+        border-color: #d50000;
+      }
     }
 
     &Select {
@@ -161,7 +179,8 @@ $bg-color-3: #6bd400;
       .mdl-textfield--floating-label.is-focused &,
       .mdl-textfield--floating-label.is-dirty &,
       .mdl-textfield--floating-label.has-placeholder .mdl-textfield__label.mdl-textfield--floating-label.is-focused &,
-      .mdl-textfield--floating-label.is-dirty .mdl-textfield__label, .mdl-textfield--floating-label.has-placeholder .mdl-textfield__label & {
+      .mdl-textfield--floating-label.is-dirty .mdl-textfield__label, .mdl-textfield--floating-label.has-placeholder .mdl-textfield__label &,
+      .mdl-textfield--floating-label.has-placeholder & {
         color: $color-3;
         font-weight: 700;;
       }
@@ -219,6 +238,28 @@ $bg-color-3: #6bd400;
     &Icon {
       margin-right: 5px;
       font-size: 18px;
+    }
+  }
+
+  &__message {
+    padding: 10px;
+    text-align: center;
+
+    &.-type {
+
+      &_error {
+        color: $color-7;
+      }
+      &_success {
+        color: $color-8;
+      }
+    }
+
+    &.-state {
+
+      &_hidden {
+        display: none;
+      }
     }
   }
 }
